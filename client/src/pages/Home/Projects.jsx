@@ -1,9 +1,12 @@
 import React, { useState } from "react";
-import { projects } from "../../resources/projects";
 import SectionTitle from "../../components/SectionTitle";
+import { useSelector } from "react-redux";
 
 const Projects = () => {
   const [selectedItemIndex, setSelectedItemIndex] = useState(0);
+  const { loading, portfolioData } = useSelector((state) => state.root)
+  const { projects } = portfolioData
+
   return (
     <div>
       <SectionTitle title="Projects" />
@@ -12,7 +15,7 @@ const Projects = () => {
           {projects.map((project, index) => (
             <div
               className="cursor-pointer"
-              key={project._id}
+              key={index}
               onClick={() => setSelectedItemIndex(index)}
             >
               <h1

@@ -1,18 +1,10 @@
+import { useSelector } from "react-redux";
 import SectionTitle from "../../components/SectionTitle";
 
 const About = () => {
-  const skills = [
-    "HTML 5",
-    "CSS 3",
-    "SCSS",
-    "Javascript",
-    "React JS",
-    "Vue JS",
-    "Node",
-    "Express",
-    "MongoDB",
-    "Firebase"
-  ]
+  const { loading, portfolioData } = useSelector((state) => state.root);
+  const { about } = portfolioData;
+  const { lottieURL, description1, description2, skills } = about;
 
   return (
     <div>
@@ -20,29 +12,15 @@ const About = () => {
       <div className="flex w-full items-center sm:flex-col">
         <div className="h-[70vh] w-1/2 sm:w-full">
           <dotlottie-player
-            src="https://lottie.host/e063a063-a121-49d7-851c-bff17047c510/M1qvV56xbS.lottie"
+            src={lottieURL}
             background="transparent"
             speed="1"
             autoplay
           ></dotlottie-player>
         </div>
         <div className="flex flex-col gap-5 w-1/2 sm:w-full">
-          <p className="text-white">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam
-            fugit cum consectetur quasi libero, saepe dolorum cumque aliquid
-            cupiditate quaerat ad adipisci officiis iure. Incidunt quidem
-            recusandae natus impedit reiciendis laborum, cupiditate ad eum alias
-            aliquid corporis, neque debitis in repudiandae iste harum. Tempore
-            quibusdam vero aut dolore. Dolores, magnam.
-          </p>
-          <p className="text-white">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam
-            fugit cum consectetur quasi libero, saepe dolorum cumque aliquid
-            cupiditate quaerat ad adipisci officiis iure. Incidunt quidem
-            recusandae natus impedit reiciendis laborum, cupiditate ad eum alias
-            aliquid corporis, neque debitis in repudiandae iste harum. Tempore
-            quibusdam vero aut dolore. Dolores, magnam.
-          </p>
+          <p className="text-white">{description1 || ""}</p>
+          <p className="text-white">{description2 || ""}</p>
         </div>
       </div>
 
@@ -54,7 +32,7 @@ const About = () => {
           {skills.map((skill, index) => (
             <div key={index} className="border border-tertiary py-3 px-10">
               <h1 className="text-tertiary">{skill}</h1>
-            </div> 
+            </div>
           ))}
         </div>
       </div>

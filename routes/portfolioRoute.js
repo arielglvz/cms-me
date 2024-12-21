@@ -79,4 +79,25 @@ router.post("/update-intro", async (req, res) => {
     }
   });
 
+// Add Experience
+  router.post("/add-experience", async (req, res) => {
+    try {
+      console.error("Request body:", req.body)
+      const experience = new Experience(req.body);
+      await experience.save();
+      res.status(200).send({
+        data: experience,
+        success: true,
+        message: "Experience added successfully"
+      });
+    } catch (error) {
+      console.error("Error updating experience:", error);
+      res.status(500).send({
+        success: false,
+        message: "An error occurred while adding the experience.",
+        error: error.message
+      });
+    }
+  })
+
 module.exports = router;

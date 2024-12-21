@@ -31,7 +31,7 @@ const AdminIntro = () => {
 
   return (
     <div>
-      <Form 
+      <Form
         onFinish={onFinish} 
         layout="vertical" 
         initialValues={portfolioData?.intro}

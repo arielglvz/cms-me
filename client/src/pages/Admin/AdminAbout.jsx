@@ -1,7 +1,7 @@
 import React from 'react'
 import { Form, Input, Button, message } from "antd";
 import { useSelector, useDispatch } from "react-redux";
-import { ShowLoading, HideLoading } from "../../redux/rootSlice";
+import { ShowLoading, HideLoading, ReloadData } from "../../redux/rootSlice";
 import axios from 'axios'
 
 const AdminAbout = () => {
@@ -20,6 +20,8 @@ const AdminAbout = () => {
       dispatch(HideLoading())
       if(response.data.success) {
         message.success(response.data.message)
+        dispatch(HideLoading());
+        dispatch(ReloadData(true));
       } else {
         message.error(response.data.message)
       }

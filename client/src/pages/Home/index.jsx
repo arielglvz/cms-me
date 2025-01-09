@@ -14,6 +14,7 @@ const Home = () => {
   return (
     <div>
       <Header />
+      <h1 className='text-2xl my-5 text-primary '>Portfolio Admin</h1>
       { portfolioData && 
         <div className='bg-primary px-40 sm:px-5'>
           <Intro />

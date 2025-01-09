@@ -22,6 +22,6 @@ const rootSlice = createSlice({
     }
   },
 })
-
+  
 export default rootSlice.reducer;
 export const { ShowLoading, HideLoading, SetPortfolioData, ReloadData } = rootSlice.actions;

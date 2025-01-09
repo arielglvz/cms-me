@@ -6,7 +6,7 @@ const Contact = () => {
   const { loading, portfolioData } = useSelector((state) => state.root);
   const { contact } = portfolioData;
 
-  const filteredObj = Object.keys(contact) 
+  const filteredObj = Object.keys(contact)
   .filter(key => key !== "_id") 
   .reduce((obj, key) => { obj[key] = contact[key]; return obj; }, {});
 
@@ -14,7 +14,7 @@ const Contact = () => {
     <div>
       <SectionTitle title="Say Hello" />
       <div className="flex sm:flex-col items-center justify-between">
-        <div className="flex flex-col gap-1">
+        <div className="flex flex-col">
           <p className="text-tertiary">{"{"}</p>
           {Object.keys(filteredObj).map((key) => (
             <p key={key} className="ml-5 text-tertiary">

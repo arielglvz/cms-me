@@ -11,6 +11,7 @@ import {
 } from "./redux/rootSlice";
 import Home from "./pages/Home";
 import Admin from "./pages/Admin";
+import Login from "./pages/Admin/Login";
 
 function App() {
   const { loading, portfolioData, reloadData } = useSelector(
@@ -20,16 +21,16 @@ function App() {
 
   const getPortfolioData = async () => {
     try {
-      dispatch(ShowLoading(true));
-      const response = await axios.get("/api/portfolio/get-portfolio-data");
-      dispatch(SetPortfolioData(response.data));
-      dispatch(ReloadData(false));
-      dispatch(HideLoading());
+        dispatch(ShowLoading(true));
+        const response = await axios.get("/api/portfolio/get-portfolio-data");
+        dispatch(SetPortfolioData(response.data));
+        dispatch(ReloadData(false));
+        dispatch(HideLoading());
     } catch (error) {
-      console.error(error);
-      dispatch(HideLoading());
+        console.error("Error fetching portfolio data:", error.response ? error.response.data : error.message);
+        dispatch(HideLoading());
     }
-  };
+};
 
   useEffect(() => {
     if (!portfolioData) {
@@ -39,6 +40,7 @@ function App() {
 
   useEffect(() => {
     if (reloadData) {
+      console.log('reloaded')
       getPortfolioData();
     }
   }, [reloadData]);
@@ -47,8 +49,9 @@ function App() {
     <BrowserRouter>
       {loading ? <Loader /> : null}
       <Routes>
-        <Route path="/" element={<Home />}></Route>
-        <Route path="/admin" element={<Admin />}></Route>
+        <Route path="/" element={<Home />} />
+        <Route path="/admin" element={<Admin />} />
+        <Route path="/admin-login" element={<Login />} />
       </Routes>
     </BrowserRouter>
   );

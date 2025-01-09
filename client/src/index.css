@@ -107,3 +107,8 @@ textarea {
   height: 100%;
   padding: 10px;
 }
+
+.ant-modal-root {
+  position: relative;
+  z-index: 90 !important;
+}

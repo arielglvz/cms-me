@@ -45,7 +45,7 @@ const Projects = () => {
               Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima,
               harum debitis quibusdam voluptatem quos architecto quia voluptate
               vitae iusto nulla. Nisi repellat a facere numquam cumque provident
-              accusamus, corrupti mollitia.
+              accusamus, corrupti mollitia Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, expedita.
             </p>
           </div>
         </div>

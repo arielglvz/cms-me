@@ -20,7 +20,10 @@
   "dependencies": {
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
+    "glob": "^11.0.1",
+    "lru-cache": "^11.0.2",
     "mongoose": "^8.9.0",
-    "nodemon": "^3.1.9"
+    "nodemon": "^3.1.9",
+    "uuid": "^11.0.5"
   }
 }
